@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="ApplyWise.API/ApplyWise.API.csproj" />
+  <Project Path="ApplyWise.Application/ApplyWise.Application.csproj" />
+  <Project Path="ApplyWise.Domain/ApplyWise.Domain.csproj" />
+  <Project Path="ApplyWise.Infrastructure/ApplyWise.Infrastructure.csproj" />
+</Solution>
