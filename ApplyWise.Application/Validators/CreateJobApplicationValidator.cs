@@ -16,9 +16,24 @@ public class CreateJobApplicationValidator: AbstractValidator<JobApplicationRequ
 
     private bool LinkValido(string? url)
     {
-        if (string.IsNullOrEmpty(url)) return true; // Deixe o NotEmpty lidar com isso se for obrigatório
+        url = url?.Trim();
 
-        return Uri.TryCreate(url, UriKind.Absolute, out var uriResult)
-               && (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps);
+        if (string.IsNullOrEmpty(url)) return true;
+
+        bool temProtocolo = url.StartsWith("http://", StringComparison.OrdinalIgnoreCase) ||
+                           url.StartsWith("https://", StringComparison.OrdinalIgnoreCase);
+
+        if (!temProtocolo)
+        {
+            url = "http://" + url;
+        }
+
+        if (Uri.TryCreate(url, UriKind.Absolute, out var uriResult))
+        {
+            return (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps)
+                   && uriResult.Host.Contains(".");
+        }
+
+        return false;
     }
 }
