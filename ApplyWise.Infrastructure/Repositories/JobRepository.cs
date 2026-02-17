@@ -14,9 +14,10 @@ public class JobRepository : IJobRepository
         _jobContext = context;
     }
 
-    public Task DeleteJobAsync(Guid id)
+    public async Task DeleteJobAsync(JobApplication job)
     {
-        throw new NotImplementedException();
+        _jobContext.Remove(job);
+        await _jobContext.SaveChangesAsync();
     }
 
     public async Task<IEnumerable<JobApplication>> GetAllJobsAsync(Guid userId)

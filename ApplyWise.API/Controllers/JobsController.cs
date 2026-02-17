@@ -7,7 +7,7 @@ namespace ApplyWise.API.Controllers;
 [ApiController]
 [Route("api/[controller]")]
 
-public class JobsController: ControllerBase
+public class JobsController : ControllerBase
 {
     private readonly IJobService _jobService;
 
@@ -30,5 +30,32 @@ public class JobsController: ControllerBase
         var jobsList = await _jobService.GetAllJobsAsync();
 
         return Ok(jobsList);
+    }
+
+    [HttpPut("{id}")]
+    public async Task<IActionResult> Update([FromRoute] Guid id, [FromBody] UpdateJobRequest request)
+    {
+        var job = await _jobService.UpdateJobAsync(id, request);
+
+        if (job == null)
+        {
+            return NotFound();
+        }
+
+        return Ok(job);
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete([FromRoute] Guid id)
+    {
+        var succes = await _jobService.DeleteJobAsync(id);
+
+        if (succes)
+        {
+            return NoContent();
+        } else
+        {
+            return NotFound();
+        }
     }
 }

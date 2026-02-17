@@ -10,5 +10,6 @@ public class MappingProfile : Profile
     {
         CreateMap<JobApplication, JobApplicationResponse>().ReverseMap();
         CreateMap<JobApplication, JobApplicationRequest>().ReverseMap();
+        CreateMap<JobApplication, UpdateJobRequest>().ReverseMap();
     }
 }

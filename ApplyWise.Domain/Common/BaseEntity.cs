@@ -1,6 +1,8 @@
-﻿namespace ApplyWise.Domain.Common;
+﻿using ApplyWise.Domain.Interfaces;
 
-public abstract class BaseEntity
+namespace ApplyWise.Domain.Common;
+
+public abstract class BaseEntity: IEntidadeAuditavel
 {
     public Guid Id { get; set; } = Guid.NewGuid();
     public DateTime CreatedAt { get; set; }

@@ -38,9 +38,15 @@ public class JobService : IJobService
         return jobApplication.Id;
     }
 
-    public Task DeleteJobAsync(Guid id)
+    public async Task<bool> DeleteJobAsync(Guid id)
     {
-        throw new NotImplementedException();
+        var job = await _jobRepository.GetJobByIdAsync(id);
+
+        if (job == null) return false;
+
+        await _jobRepository.DeleteJobAsync(job);
+        
+        return true;
     }
 
     public async Task<IEnumerable<JobApplicationResponse>> GetAllJobsAsync()
@@ -71,10 +77,5 @@ public class JobService : IJobService
 
         return _mapper.Map<JobApplicationResponse>(job);
     }
+
 }
-
-//No Delete:
-
-//Chame o método de deletar no repositório.
-
-//Como configuramos o SaveChangesAsync, o EF vai trocar o estado para Modified e setar IsDeleted = true sozinho.

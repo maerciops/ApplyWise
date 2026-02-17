@@ -4,12 +4,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ApplyWise.Infrastructure.Persistence;
 
-public interface IEntidadeAuditavel
-{
-    DateTime CreatedAt { get; set; }
-    DateTime? UpdatedAt { get; set; }
-}
-
 public class ApplicationDbContext: DbContext
 {
     private readonly ICurrentUserService _userContext;
@@ -32,7 +26,14 @@ public class ApplicationDbContext: DbContext
                 entrada.Entity.CreatedAt = DateTime.UtcNow;
             }
 
+            if (entrada.State == EntityState.Modified && entrada.Entity.CreatedAt == DateTime.MinValue)
+            {
+                entrada.Entity.CreatedAt = DateTime.UtcNow;
+            }
+
             entrada.Entity.UpdatedAt = DateTime.UtcNow;
+
+            entrada.Property(p => p.UpdatedAt).IsModified = true;
         }
 
         foreach (var entry in ChangeTracker.Entries().Where(e => e.State == EntityState.Deleted))

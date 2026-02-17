@@ -8,5 +8,5 @@ public interface IJobRepository
     Task<IEnumerable<JobApplication>> GetAllJobsAsync(Guid userId);
     Task InsertJobAsync(JobApplication job);
     Task UpdateJobAsync(JobApplication job);
-    Task DeleteJobAsync(Guid id);
+    Task DeleteJobAsync(JobApplication job);
 }
