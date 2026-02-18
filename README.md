@@ -7,7 +7,7 @@
 ![Azure](https://img.shields.io/badge/Azure-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
 ![Blazor](https://img.shields.io/badge/Blazor-512BD4?style=for-the-badge&logo=blazor&logoColor=white)
 ![Semantic Kernel](https://img.shields.io/badge/Semantic%20Kernel-black?style=for-the-badge)
-![Gemini 1.5](https://img.shields.io/badge/AI-Gemini%201.5%20Flash-4285F4?style=for-the-badge&logo=google&logoColor=white)
+![Gemini 3.0](https://img.shields.io/badge/AI-Gemini%201.5%20Flash-4285F4?style=for-the-badge&logo=google&logoColor=white)
 
 ## 📋 Project Overview
 
@@ -17,7 +17,7 @@ This project serves as a comprehensive portfolio demonstrating a **Senior-level 
 
 ### 🎯 Key Goals
 - **Architecture First:** Demonstrate a robust Modular Monolith ready for microservices extraction.
-- **FinOps Oriented:** Architecture optimized for low cloud costs using efficient AI models (**Gemini 1.5 Flash**) and local text processing.
+- **FinOps Oriented:** Architecture optimized for low cloud costs using efficient AI models (**Gemini 3.0 Flash**) and local text processing.
 - **Privacy by Design:** GDPR-compliant architecture with strict data isolation per tenant and audit trails.
 
 ---
