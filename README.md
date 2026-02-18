@@ -26,6 +26,7 @@ This project serves as a comprehensive portfolio demonstrating a **Senior-level 
 
 The solution follows the **Clean Architecture** principles to ensure separation of concerns, testability, and adherence to the Dependency Inversion Principle.
 
+```mermaid
 graph TD
     %% Atores e Camadas Externas
     User((User)) --> API["Presentation Layer (Web API / Blazor)"]
