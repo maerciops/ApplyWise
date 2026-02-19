@@ -107,30 +107,33 @@ Unlike standard keyword matching, CareerOps uses Semantic Analysis to understand
 **Context Window Optimization**: Using Gemini 2.5 Flash allows for evaluating multiple resumes simultaneously for A/B testing at a fraction of traditional LLM costs.
 
 ## 🚀 Getting Started
-**Prerequisites**
+### Prerequisites
 .NET 8 SDK
 
 SQL Server (LocalDB or Docker)
 
 Google AI API Key (Gemini)
 
-**Installation**
+### Installation
 **1. Clone the repo**
-
+```bash
 git clone https://github.com/your-username/career-ops.git
 cd career-ops
+```
 
-**2.Configure User Secrets (Security)**
-
+**2. Configure User Secrets (Security)**
+```bash
 dotnet user-secrets set "ConnectionStrings:DefaultConnection" "Your_ConnectionString"
 dotnet user-secrets set "AI:GeminiApiKey" "Your_Gemini_Key"
+```
 
-**3.Run Migrations & Start**
-
+**3. Run Migrations & Start**
+```bash
 cd src/CareerOps.Infrastructure
 dotnet ef database update --startup-project ../CareerOps.API
 cd ../CareerOps.API
 dotnet run
+```
 
 ## 🛣️ Roadmap: The Data Engineering Pivot (V2)
 The project is currently evolving from a transactional CRM to an **Event-Driven Data Product**.
